@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ks/vgpJG9gV5c6zGGuYPa3jOitayNlmN6NGqBzm0AONy8jrjxeayF1wTqqn8robMQs/mJgJj9K6KpdYoMlDUxg==",
+  "dgSpecHash": "rENJS4AMdfqbg4NUKYUuQYetUMU3yA63qgbAybe6X+4LcH2pgv3n45751OOo8ZPTHkkl/kTUARPAOqvnPtxmrg==",
   "success": true,
-  "projectFilePath": "D:\\CanamRegister\\CanamRegister\\CanamRegister.csproj",
+  "projectFilePath": "D:\\CanamRegister\\CanamRegister.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

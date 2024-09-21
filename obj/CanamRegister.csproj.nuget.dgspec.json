@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CanamRegister\\CanamRegister\\CanamRegister.csproj": {}
+    "D:\\CanamRegister\\CanamRegister.csproj": {}
   },
   "projects": {
-    "D:\\CanamRegister\\CanamRegister\\CanamRegister.csproj": {
+    "D:\\CanamRegister\\CanamRegister.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CanamRegister\\CanamRegister\\CanamRegister.csproj",
+        "projectUniqueName": "D:\\CanamRegister\\CanamRegister.csproj",
         "projectName": "CanamRegister",
-        "projectPath": "D:\\CanamRegister\\CanamRegister\\CanamRegister.csproj",
+        "projectPath": "D:\\CanamRegister\\CanamRegister.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\CanamRegister\\CanamRegister\\obj\\",
+        "outputPath": "D:\\CanamRegister\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
