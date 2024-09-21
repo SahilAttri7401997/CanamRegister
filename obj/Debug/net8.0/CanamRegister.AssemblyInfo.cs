@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CanamRegister")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b98e32ab999d72f70a3d631f03348cce6dfe4104")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bc65a978e89191f8ed425d815ed8945f3e8f9f99")]
 [assembly: System.Reflection.AssemblyProductAttribute("CanamRegister")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CanamRegister")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
