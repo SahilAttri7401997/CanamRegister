@@ -14,7 +14,8 @@ namespace CanamRegister.Services
         }
         public async Task<CreditAccountFormRequestModel> SaveCustomer(CreditAccountFormRequestModel model)
         {
-            var request = new Customer
+            // Create a new Customer entity from the provided model
+            var customer = new Customer
             {
                 LegalName = model.LegalName,
                 TradeName = model.TradeName,
@@ -42,9 +43,6 @@ namespace CanamRegister.Services
                 TransitNo = model.TransitNo,
                 InstNo = model.InstNo,
                 AccountNo = model.AccountNo,
-                SupplierName = model.SupplierName,
-                SupplierCity = model.SupplierCity,
-                SupplierPhone = model.SupplierPhone,
                 IsContactAuthorized = model.IsContactAuthorized,
                 FirstName = model.FirstName,
                 LastName = model.LastName,
@@ -63,11 +61,49 @@ namespace CanamRegister.Services
                 Guarantee = model.Guarantee,
                 AuthorizationForVerification = model.AuthorizationForVerification,
                 AccuracyConfirmation = model.AccuracyConfirmation,
-                TermsAcknowledgement = model.TermsAcknowledgement
+                TermsAcknowledgement = model.TermsAcknowledgement,
+                CCFirstName = model.CCFirstName,
+                CCLastName = model.CCLastName,
+                CCNumber = model.CCNumber,
+                CCExpiryMonth = model.CCExpiryMonth,
+                CCExpiryYear = model.CCExpiryYear,
+                CVV = model.CVV,
             };
-            _context.Add(request);
+
+            // Add the customer to the context
+            _context.Add(customer);
+
+            // Save changes to the database
             await _context.SaveChangesAsync();
+
+            // Now you can get the ID of the saved customer
+            var customerId = customer.Id; // Assuming Id is the primary key
+
+            // Save suppliers based on the model's properties
+            await SaveSuppliers(customerId, model);
             return model;
         }
+
+        // Method to save suppliers based on model fields
+        private async Task SaveSuppliers(int customerId, CreditAccountFormRequestModel model)
+        {
+            var suppliers = new Suppliers
+            {
+                CustomerId = customerId,
+                SupplierName1 = model.SupplierName1,
+                SupplierCity1 = model.SupplierCity1,
+                SupplierPhone1 = model.SupplierPhone1,
+                SupplierName2 = model.SupplierName2,
+                SupplierCity2 = model.SupplierCity2,
+                SupplierPhone2 = model.SupplierPhone2,
+                SupplierName3 = model.SupplierName3,
+                SupplierCity3 = model.SupplierCity3,
+                SupplierPhone3 = model.SupplierPhone3
+            };
+            _context.Suppliers.Add(suppliers);
+            await _context.SaveChangesAsync();
+        }
+
+
     }
 }

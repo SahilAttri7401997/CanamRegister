@@ -7,6 +7,7 @@ namespace CanamRegister.Data
     {
         // Define DbSets for your entities
         public DbSet<Customer> Customer { get; set; }
+        public DbSet<Suppliers> Suppliers { get; set; }
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options)
         {
         }

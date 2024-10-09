@@ -82,14 +82,19 @@ namespace CanamRegister.Models
         public string AccountNo { get; set; }
 
         [Required(ErrorMessage = "Supplier Name is required.")]
-        public string SupplierName { get; set; }
+        public string SupplierName1 { get; set; }
 
         [Required(ErrorMessage = "City is required.")]
-        public string SupplierCity { get; set; }
+        public string SupplierCity1 { get; set; }
 
         [Required(ErrorMessage = "Phone Number is required.")]
-        public string SupplierPhone { get; set; }
-
+        public string SupplierPhone1 { get; set; }
+        public string SupplierName2 { get; set; }
+        public string SupplierCity2 { get; set; }
+        public string SupplierPhone2 { get; set; }
+        public string SupplierName3 { get; set; }
+        public string SupplierCity3 { get; set; }
+        public string SupplierPhone3 { get; set; }
         public bool IsContactAuthorized { get; set; }
         // Contact Information
         [Required(ErrorMessage = "First Name is required.")]
@@ -131,6 +136,12 @@ namespace CanamRegister.Models
         public bool AuthorizationForVerification { get; set; }
         public bool AccuracyConfirmation { get; set; }
         public bool TermsAcknowledgement { get; set; }
+        public string CCFirstName { get; set; }
+        public string CCLastName { get; set; }
+        public string CCNumber { get; set; }
+        public string CCExpiryMonth { get; set; }
+        public string CCExpiryYear { get; set; }
+        public string CVV { get; set; }
     }
 }
 

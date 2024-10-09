@@ -12,7 +12,6 @@ namespace CanamRegister.Entity
         public string PhoneNumber { get; set; }
         public string TaxID { get; set; }
         public bool IsRegisteredBusiness { get; set; }
-        public byte[] ExemptionTaxCertificate { get; set; } // Store as byte array
         public string PSTNumber { get; set; }
         public string BillingAddress { get; set; }
         public string BillingAddress2 { get; set; }
@@ -33,9 +32,6 @@ namespace CanamRegister.Entity
         public string TransitNo { get; set; }
         public string InstNo { get; set; }
         public string AccountNo { get; set; }
-        public string SupplierName { get; set; }
-        public string SupplierCity { get; set; }
-        public string SupplierPhone { get; set; }
         public bool IsContactAuthorized { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -55,6 +51,12 @@ namespace CanamRegister.Entity
         public bool AuthorizationForVerification { get; set; }
         public bool AccuracyConfirmation { get; set; }
         public bool TermsAcknowledgement { get; set; }
+        public string CCFirstName { get; set; }
+        public string CCLastName { get; set; }
+        public string CCNumber { get; set; }
+        public string CCExpiryMonth { get; set; }
+        public string CCExpiryYear { get; set; }
+        public string CVV { get; set; }
     }
 
 }

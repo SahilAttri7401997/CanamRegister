@@ -91,6 +91,21 @@
         .disabled-field {
             background-color: #e9ecef; /* Light grey background for disabled fields */
         }
+
+        .uppercase {
+            text-transform: uppercase;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 25px;
+            top: 58%; /* Center vertically */
+            transform: translateY(-50%); /* Adjust position to be perfectly centered */
+            cursor: pointer;
+            color: black; /* Change color to black */
+            font-size: 1.25em; /* Increase size of the icon */
+        }
+
     </style>
 
 
@@ -154,19 +169,19 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="legalName">*Legal Name of Business</label>
-                                            <input type="text" asp-for="LegalName" id="legalName" class="form-control" placeholder="e.g. Summer Collection" maxlength="100" autofocus required autocomplete="off" />
+                                            <input type="text" asp-for="LegalName" id="legalName" class="form-control" placeholder="e.g. Summer Collection" maxlength="100" autofocus required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="tradeName">*Trade Name</label>
-                                            <input type="text" asp-for="TradeName" id="tradeName" class="form-control" placeholder="e.g. Summer Collection" maxlength="100" autofocus required autocomplete="off" />
+                                            <input type="text" asp-for="TradeName" id="tradeName" class="form-control" placeholder="e.g. Summer Collection" maxlength="100" autofocus required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="businessType">*Business Type</label>
-                                            <input type="text" asp-for="BusinessType" id="businessType" class="form-control" placeholder="e.g. Retail" maxlength="100" autofocus required autocomplete="off" />
+                                            <input type="text" asp-for="BusinessType" id="businessType" class="form-control" placeholder="e.g. Retail" maxlength="100" autofocus required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                 </div>
@@ -174,14 +189,16 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="phoneNumber">*Phone Number</label>
-                                            <input type="tel" asp-for="PhoneNumber" id="phoneNumber" class="form-control numeric-input" placeholder="e.g. 1234567890" pattern="\d{10}" maxlength="10" autofocus required autocomplete="off" />
+                                            <input type="tel" asp-for="PhoneNumber" id="phoneNumber" class="form-control numeric-input" placeholder="e.g. (222)-333-4444" maxlength="10" autofocus required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-8">
                                         <div class="form-group">
-                                            <label for="taxID">*Federal Tax ID</label>
-                                            <input type="text" asp-for="TaxID" id="taxID" class="form-control numeric-input" placeholder="e.g. 1234567890" maxlength="10" autofocus required autocomplete="off" />
+                                            <label for="taxID"><strong>*Federal Tax ID</strong></label>
+                                            <input type="text" asp-for="TaxID" id="TaxID" class="form-control" placeholder="123456789-RT0001" maxlength="16" title="Your Tax-Id number must be in the format 123456789-RT0001 and exactly 15 characters long." required autocomplete="off" oninput="toUpperCase(this)" />
+                                            <div id="taxIdError" class="text-danger" style="display: none;"></div>
                                         </div>
+                                        <p><strong>Your Tax-Id number must be in the format 123456789-RT0001 and exactly 15 characters long and should be in this format: <span style="color: #0fc6f1;">123456789</span><span style="color: red;">-RT0001</span>.</strong></p>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -216,7 +233,8 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label for="pstNumber"><strong>PST Number</strong></label>
-                                            <input type="text" asp-for="PSTNumber" id="pstNumber" class="form-control" placeholder="PST-1234-5678" maxlength="11" title="Your PST number must be in the format PST-1234567 and exactly 11 characters long." required autocomplete="off" />
+                                            <input type="text" asp-for="PSTNumber" id="PSTNumber" class="form-control" placeholder="PST-1234567" maxlength="11" title="Your PST number must be in the format PST-1234567 and exactly 11 characters long." required autocomplete="off" oninput="toUpperCase(this)" />
+                                            <div id="pstNumberError" class="text-danger" style="display: none;"></div>
                                         </div>
                                         <p><strong>Your PST number is 11 characters long and should be in this format: <span style="color: #0fc6f1;">PST</span><span style="color: red;">-1234567</span>.</strong></p>
                                     </div>
@@ -240,19 +258,19 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="address">*Address</label>
-                                            <input type="text" asp-for="BillingAddress" id="BillingAddress" class="form-control" maxlength="100" placeholder="123 Main St" required autocomplete="off" />
+                                            <input type="text" asp-for="BillingAddress" id="BillingAddress" class="form-control" maxlength="100" placeholder="123 Main St" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="address2">Address 2</label>
-                                            <input type="text" asp-for="BillingAddress2" id="BillingAddress2" class="form-control" maxlength="100" placeholder="Apt 4B" required autocomplete="off" />
+                                            <input type="text" asp-for="BillingAddress2" id="BillingAddress2" class="form-control" maxlength="100" placeholder="Apt 4B" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="city">*City</label>
-                                            <input type="text" asp-for="BillingCity" id="BillingCity" class="form-control" maxlength="30" placeholder="New York" required autocomplete="off" />
+                                            <input type="text" asp-for="BillingCity" id="BillingCity" class="form-control" maxlength="30" placeholder="New York" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                 </div>
@@ -260,19 +278,19 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="state">*State</label>
-                                            <input type="text" asp-for="BillingState" id="BillingState" class="form-control" maxlength="30" placeholder="NY" required autocomplete="off" />
+                                            <input type="text" asp-for="BillingState" id="BillingState" class="form-control" maxlength="30" placeholder="NY" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="shippingCountry">*Country</label>
-                                            <input type="text" asp-for="BillingCountry" id="BillingCountry" class="form-control" maxlength="50" placeholder="United States" required autocomplete="off" />
+                                            <input type="text" asp-for="BillingCountry" id="BillingCountry" class="form-control" maxlength="50" placeholder="United States" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="zip">*Postal Code</label>
-                                            <input type="text" asp-for="BillingZip" id="BillingZip" class="form-control" maxlength="7" placeholder="10001" required autocomplete="off" />
+                                            <input type="text" asp-for="BillingZip" id="BillingZip" class="form-control" maxlength="7" placeholder="10001" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                 </div>
@@ -286,7 +304,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <div class="d-flex align-items-center">
+                            <div class="align-items-center">
                                 <input type="checkbox" id="copyBillingAddress" class="mr-2" />
                                 <label for="copyBillingAddress" class="mb-0">
                                     <strong style="font-size:large"> Shipping Address</strong>
@@ -301,19 +319,19 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="shippingAddress">*Address</label>
-                                            <input type="text" asp-for="ShippingAddress" id="ShippingAddress" class="form-control" maxlength="100" placeholder="123 Main St" required autocomplete="off" />
+                                            <input type="text" asp-for="ShippingAddress" id="ShippingAddress" class="form-control" maxlength="100" placeholder="123 Main St" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="shippingAddress2">Address 2</label>
-                                            <input type="text" asp-for="ShippingAddress2" id="ShippingAddress2" class="form-control" maxlength="100" placeholder="Apt 4B" required autocomplete="off" />
+                                            <input type="text" asp-for="ShippingAddress2" id="ShippingAddress2" class="form-control" maxlength="100" placeholder="Apt 4B" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="shippingCity">*City</label>
-                                            <input type="text" asp-for="ShippingCity" id="ShippingCity" class="form-control" maxlength="30" placeholder="New York" required autocomplete="off" />
+                                            <input type="text" asp-for="ShippingCity" id="ShippingCity" class="form-control" maxlength="30" placeholder="New York" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                 </div>
@@ -323,19 +341,19 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="shippingState">*State</label>
-                                            <input type="text" asp-for="ShippingState" id="ShippingState" class="form-control" maxlength="30" placeholder="NY" required autocomplete="off" />
+                                            <input type="text" asp-for="ShippingState" id="ShippingState" class="form-control" maxlength="30" placeholder="NY" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="shippingCountry">*Country</label>
-                                            <input type="text" asp-for="ShippingCountry" id="ShippingCountry" class="form-control" maxlength="50" placeholder="United States" required autocomplete="off" />
+                                            <input type="text" asp-for="ShippingCountry" id="ShippingCountry" class="form-control" maxlength="50" placeholder="United States" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="shippingZipcode">*Postal Code</label>
-                                            <input type="text" asp-for="ShippingZipcode" id="ShippingZipcode" class="form-control" maxlength="7" placeholder="10001" required autocomplete="off" />
+                                            <input type="text" asp-for="ShippingZipcode" id="ShippingZipcode" class="form-control" maxlength="7" placeholder="10001" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                 </div>
@@ -358,25 +376,25 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="bankName">*Bank Name</label>
-                                            <input type="text" asp-for="BankName" id="bankName" class="form-control" placeholder="e.g. Bank of America" maxlength="50" required autocomplete="off" />
+                                            <input type="text" asp-for="BankName" id="bankName" class="form-control" placeholder="e.g. Bank of America" maxlength="50" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="contactName">*Contact Name</label>
-                                            <input type="text" asp-for="BankContactName" id="contactName" class="form-control" placeholder="e.g. John Doe" maxlength="50" required autocomplete="off" />
+                                            <input type="text" asp-for="BankContactName" id="contactName" class="form-control" placeholder="e.g. John Doe" maxlength="50" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="address">*Address</label>
-                                            <input type="text" asp-for="BankAddress" id="address" class="form-control" placeholder="e.g. 123 Bank St" maxlength="100" required autocomplete="off" />
+                                            <input type="text" asp-for="BankAddress" id="address" class="form-control" placeholder="e.g. 123 Bank St" maxlength="100" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label for="phoneNumber">*Phone Number</label>
-                                            <input type="text" asp-for="BankPhoneNumber" id="phoneNumber" class="form-control numeric-input" placeholder="e.g. 1234567890" pattern="\d{10}" maxlength="10" required autocomplete="off" />
+                                            <input type="text" asp-for="BankPhoneNumber" id="phoneNumber" class="form-control numeric-input" placeholder="e.g. (222)-333-4444" maxlength="10" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                 </div>
@@ -386,22 +404,92 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="transitNo">*Transit No.</label>
-                                            <input type="text" asp-for="TransitNo" id="transitNo" class="form-control" placeholder="Transit No." maxlength="5" required autocomplete="off" />
+                                            <input type="text" asp-for="TransitNo" id="transitNo" class="form-control" placeholder="Transit No." maxlength="5" required autocomplete="off" oninput="allowOnlyNumbers(this)" />
                                             <small class="form-text text-muted">Your Transit No. should be 5 digits long.</small>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="instNo">*Inst No.</label>
-                                            <input type="text" asp-for="InstNo" id="instNo" class="form-control" placeholder="Inst No." maxlength="3" required autocomplete="off" />
+                                            <input type="text" asp-for="InstNo" id="instNo" class="form-control" placeholder="Inst No." maxlength="3" required autocomplete="off" oninput="allowOnlyNumbers(this)" />
                                             <small class="form-text text-muted">Your Inst No. should be 3 digits long.</small>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="accountNo">*Account No.</label>
-                                            <input type="text" asp-for="AccountNo" id="accountNo" class="form-control" placeholder="Account No." maxlength="7" required autocomplete="off" />
+                                            <input type="text" asp-for="AccountNo" id="accountNo" class="form-control" placeholder="Account No." maxlength="7" required autocomplete="off" oninput="allowOnlyNumbers(this)" />
                                             <small class="form-text text-muted">Your Account No. should be 7 digits long.</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <strong style="font-size:large">Credit Card Information</strong>
+                        </div>
+                        <div class="panel-body">
+                            <fieldset>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="firstName">*First Name</label>
+                                            <input type="text" asp-for="CCFirstName" id="CCFirstName" class="form-control" maxlength="50" placeholder="e.g. John" required autocomplete="off" oninput="toUpperCase(this)" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="lastName">*Last Name</label>
+                                            <input type="text" asp-for="CCLastName" id="CCLastName" class="form-control" maxlength="50" placeholder="e.g. Doe" required autocomplete="off" oninput="toUpperCase(this)" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="CCNumber">*Credit Card Number</label>
+                                            <input type="text" asp-for="CCNumber" id="CCNumber" class="form-control" maxlength="19" placeholder="XXXX-XXXX-XXXX-XXXX" required autocomplete="off" />
+                                            <div id="ccNumberError" class="text-danger" style="display: none;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="CCExpiryMonth">*Expiry Month</label>
+                                            <select asp-for="CCExpiryMonth" id="CCExpiryMonth" class="form-control" required>
+                                                <option value="">Select Month</option>
+                                                @for (var month = 1; month <= 12; month++)
+                                                {
+                                                    <option value="@month.ToString("D2")">@month.ToString("D2")</option>
+                                                }
+                                            </select>
+                                            <div id="expiryMonthError" class="text-danger" style="display: none;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="CCExpiryYear">*Expiry Year</label>
+                                            <select asp-for="CCExpiryYear" id="CCExpiryYear" class="form-control" required>
+                                                <option value="">Select Year</option>
+                                                @for (var year = DateTime.Now.Year; year <= DateTime.Now.Year + 10; year++)
+                                                {
+                                                    <option value="@year">@year</option>
+                                                }
+                                            </select>
+                                            <div id="expiryYearError" class="text-danger" style="display: none;"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="CVV">*CVV</label>
+                                            <input type="text" asp-for="CVV" id="CVV" class="form-control" placeholder="***" maxlength="3" required autocomplete="off" oninput="allowOnlyNumbers(this)" />
+                                            <div id="cvvError" class="text-danger" style="display: none;"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -419,32 +507,79 @@
                         </div>
                         <div class="panel-body">
                             <fieldset id="supplierSection">
-                                <!-- Static Supplier Entry -->
+                                <!-- Supplier Entry 1 -->
                                 <div class="supplier-entry static-entry">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="supplierName1">*Supplier Name</label>
-                                                <input type="text" asp-for="SupplierName" id="supplierName1" class="form-control" maxlength="100" placeholder="e.g. Supplier Co." required autocomplete="off" />
+                                                <input type="text" asp-for="SupplierName1" id="supplierName1" class="form-control" maxlength="100" placeholder="e.g. Supplier Co." required autocomplete="off" oninput="toUpperCase(this)" />
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="supplierCity1">*City</label>
-                                                <input type="text" asp-for="SupplierCity" id="supplierCity1" class="form-control" maxlength="100" placeholder="e.g. New York" required autocomplete="off" />
+                                                <input type="text" asp-for="SupplierCity1" id="supplierCity1" class="form-control" maxlength="100" placeholder="e.g. New York" required autocomplete="off" oninput="toUpperCase(this)" />
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="supplierPhone1">*Phone Number</label>
-                                                <input type="text" asp-for="SupplierPhone" id="supplierPhone1" class="form-control numeric-input" maxlength="10" placeholder="e.g. 1234567890" required autocomplete="off" />
+                                                <input type="text" asp-for="SupplierPhone1" id="supplierPhone1" class="form-control numeric-input" maxlength="10" placeholder="e.g. (222)-333-4444" required autocomplete="off" />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- Placeholder for additional supplier entries -->
+                                <!-- Supplier Entry 2 -->
+                                <div class="supplier-entry static-entry">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="supplierName2">*Supplier Name</label>
+                                                <input type="text" asp-for="SupplierName2" id="supplierName2" class="form-control" maxlength="100" placeholder="e.g. Supplier Co." autocomplete="off" oninput="toUpperCase(this)" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="supplierCity2">*City</label>
+                                                <input type="text" asp-for="SupplierCity2" id="supplierCity2" class="form-control" maxlength="100" placeholder="e.g. New York" autocomplete="off" oninput="toUpperCase(this)" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="supplierPhone2">*Phone Number</label>
+                                                <input type="text" asp-for="SupplierPhone2" id="supplierPhone2" class="form-control numeric-input" maxlength="10" placeholder="e.g. (222)-333-4444" autocomplete="off" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Supplier Entry 3 -->
+                                <div class="supplier-entry static-entry">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="supplierName3">*Supplier Name</label>
+                                                <input type="text" asp-for="SupplierName3" id="supplierName3" class="form-control" maxlength="100" placeholder="e.g. Supplier Co." autocomplete="off" oninput="toUpperCase(this)" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="supplierCity3">*City</label>
+                                                <input type="text" asp-for="SupplierCity3" id="supplierCity3" class="form-control" maxlength="100" placeholder="e.g. New York" autocomplete="off" oninput="toUpperCase(this)" />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="supplierPhone3">*Phone Number</label>
+                                                <input type="text" asp-for="SupplierPhone3" id="supplierPhone3" class="form-control numeric-input" maxlength="10" placeholder="e.g. (222)-333-4444" autocomplete="off" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </fieldset>
+
                         </div>
                     </div>
                 </div>
@@ -468,19 +603,19 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="firstName">*First Name</label>
-                                            <input type="text" asp-for="FirstName" id="firstName" class="form-control" maxlength="50" placeholder="e.g. John" required autocomplete="off" />
+                                            <input type="text" asp-for="FirstName" id="firstName" class="form-control" maxlength="50" placeholder="e.g. John" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="lastName">*Last Name</label>
-                                            <input type="text" asp-for="LastName" id="lastName" class="form-control" maxlength="50" placeholder="e.g. Doe" required autocomplete="off" />
+                                            <input type="text" asp-for="LastName" id="lastName" class="form-control" maxlength="50" placeholder="e.g. Doe" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="title">*Title</label>
-                                            <input type="text" asp-for="Title" id="title" class="form-control" maxlength="50" placeholder="e.g. Manager" required autocomplete="off" />
+                                            <input type="text" asp-for="Title" id="title" class="form-control" maxlength="50" placeholder="e.g. Manager" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                 </div>
@@ -488,19 +623,20 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="mobilePhone">*Mobile Phone</label>
-                                            <input type="text" asp-for="MobilePhone" id="mobilePhone" class="form-control numeric-input" maxlength="10" pattern="\d{10}" placeholder="e.g. 1234567890" required autocomplete="off" />
+                                            <input type="text" asp-for="MobilePhone" id="mobilePhone" class="form-control numeric-input" maxlength="10" placeholder="e.g. (222)-333-4444" required autocomplete="off"  />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="emailAddress">*Email Address</label>
-                                            <input type="email" asp-for="EmailAddress" id="emailAddress" class="form-control" maxlength="50" placeholder="e.g. john.doe@example.com" required autocomplete="off" />
+                                            <input type="email" asp-for="EmailAddress" id="emailAddress" class="form-control" pattern="([a-z0-9-]{1,63}\.)+" maxlength="50" placeholder="e.g. john.doe@example.com" required autocomplete="off" oninput="toUpperCase(this)" />
+                                            <span id="emailError" class="text-danger" style="display:none;"></span>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="fax">Fax</label>
-                                            <input type="text" asp-for="Fax" id="fax" class="form-control numeric-input" placeholder="e.g. 1234567890" pattern="\d{10}" maxlength="10" required autocomplete="off" />
+                                            <input type="text" asp-for="Fax" id="fax" class="form-control numeric-input" placeholder="e.g. (222)-333-4444" maxlength="10" required autocomplete="off" />
                                         </div>
                                     </div>
                                 </div>
@@ -532,8 +668,8 @@
                                     <!-- Mobile Number Input Column -->
                                     <div class="col-md-8">
                                         <div class="form-group">
-                                            <label for="mobileNumber">Mobile Number (format:1234567890)</label>
-                                            <input type="text" asp-for="MobileNumber" id="mobileNumber" class="form-control numeric-input" maxlength="10" pattern="\d{10}" placeholder="e.g. 1234567890" title="Please enter the mobile number in the format: (222) 333-4444" required autocomplete="off" />
+                                            <label for="mobileNumber">Mobile Number (format:(222)-333-4444)</label>
+                                            <input type="text" asp-for="MobileNumber" id="mobileNumber" class="form-control numeric-input" maxlength="10" placeholder="e.g. (222)-333-4444" title="Please enter the mobile number in the format: (222) 333-4444" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                 </div>
@@ -574,18 +710,28 @@
                                 <!-- Password and Confirm Password Inputs in One Row -->
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="form-group">
+                                        <div class="form-group position-relative">
                                             <label for="password">*Password</label>
-                                            <input type="password" asp-for="Password" id="password" class="form-control" maxlength="10" placeholder="Enter your password" required autocomplete="off" />
+                                            <input type="password" asp-for="Password" id="Password" class="form-control" maxlength="16" placeholder="Enter your password" required autocomplete="off" />
+                                            <div id="passwordError" class="text-danger" style="display: none;"></div>
+                                            <span class="toggle-password" toggle="#Password">
+                                                <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
-                                        <div class="form-group">
+                                        <div class="form-group position-relative">
                                             <label for="confirmPassword">*Confirm Password</label>
-                                            <input type="password" asp-for="ConfirmPassword" id="confirmPassword" maxlength="10" class="form-control" placeholder="Confirm your password" required autocomplete="off" />
+                                            <input type="password" asp-for="ConfirmPassword" id="ConfirmPassword" class="form-control" maxlength="16" placeholder="Confirm your password" required autocomplete="off" />
+                                            <div id="confirmPasswordError" class="text-danger" style="display: none;"></div>
+                                            <span class="toggle-password" toggle="#ConfirmPassword">
+                                                <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                                            </span>
                                         </div>
                                     </div>
                                 </div>
+
+
 
                                 <!-- Checkboxes -->
                                 <div class="form-check">
@@ -676,82 +822,221 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 
     <script>
-        // Function to copy billing address to shipping address
         $(document).ready(function () {
-            // Numeric validation function
-            function validateNumericInput(selector) {
-                $(selector).on('focusout', function () {
-                    const value = $(this).val();
-                    const isNumeric = /^\d*$/.test(value); // Regular expression to check if the input is numeric only
+            // Toggle password visibility
+            $('.toggle-password').on('click', function () {
+                const input = $($(this).attr('toggle'));
+                const type = input.attr('type') === 'password' ? 'text' : 'password';
+                input.attr('type', type);
+                $(this).find('i').toggleClass('fa-eye fa-eye-slash');
+            });
 
-                    if (!isNumeric) {
-                        // Show error message using toastr
-                        toastr.error('Please enter only numeric values.');
+            // Function to copy billing address to shipping address
+            function copyBillingAddress() {
+                var copyCheckbox = $('#copyBillingAddress');
+                if (copyCheckbox.is(':checked')) {
+                    $('#ShippingAddress').val($('#BillingAddress').val());
+                    $('#ShippingAddress2').val($('#BillingAddress2').val());
+                    $('#ShippingCity').val($('#BillingCity').val());
+                    $('#ShippingState').val($('#BillingState').val());
+                    $('#ShippingCountry').val($('#BillingCountry').val());
+                    $('#ShippingZipcode').val($('#BillingZip').val());
+                } else {
+                    $('#ShippingAddress, #ShippingAddress2, #ShippingCity, #ShippingState, #ShippingCountry, #ShippingZipcode').val('');
+                }
+            }
 
-                        // Optionally, clear the invalid input
-                        $(this).val(value.replace(/\D/g, '')); // Removes non-numeric characters
-                    }
+            // Attach event listener to checkbox
+            $('#copyBillingAddress').change(copyBillingAddress);
+
+            // Function to toggle fields based on checkbox
+            function toggleFields(checkboxId, fieldIds) {
+                var checkbox = $('#' + checkboxId);
+                fieldIds.forEach(function (fieldId) {
+                    var field = $('#' + fieldId);
+                    field.prop('disabled', !checkbox.is(':checked'));
+                    field.toggleClass('disabled-field', field.prop('disabled'));
                 });
             }
 
-            // Initialize validation for all numeric input fields
-            validateNumericInput('.numeric-input');
-        });
-
-
-        function copyBillingAddress() {
-            var copyCheckbox = document.getElementById('copyBillingAddress');
-            var billingAddress = document.getElementById('BillingAddress').value;
-            var billingAddress2 = document.getElementById('BillingAddress2').value;
-            var billingCity = document.getElementById('BillingCity').value;
-            var billingState = document.getElementById('BillingState').value;
-            var billingCountry = document.getElementById('BillingCountry').value;
-            var billingZip = document.getElementById('BillingZip').value;
-
-            // Copy values to shipping address fields
-            document.getElementById('ShippingAddress').value = copyCheckbox.checked ? billingAddress : '';
-            document.getElementById('ShippingAddress2').value = copyCheckbox.checked ? billingAddress2 : '';
-            document.getElementById('ShippingCity').value = copyCheckbox.checked ? billingCity : '';
-            document.getElementById('ShippingState').value = copyCheckbox.checked ? billingState : '';
-            document.getElementById('ShippingCountry').value = copyCheckbox.checked ? billingCountry : '';
-            document.getElementById('ShippingZipcode').value = copyCheckbox.checked ? billingZip : '';
-        }
-
-        // Attach event listener to checkbox
-        document.addEventListener('DOMContentLoaded', function () {
-            document.getElementById('copyBillingAddress').addEventListener('change', copyBillingAddress);
-        });
-
-        function toggleFields(checkboxId, fieldIds) {
-            var checkbox = document.getElementById(checkboxId);
-            fieldIds.forEach(function (fieldId) {
-                var field = document.getElementById(fieldId);
-                if (checkbox && field) {
-                    field.disabled = !checkbox.checked;
-                    if (field.disabled) {
-                        field.classList.add('disabled-field');
-                    } else {
-                        field.classList.remove('disabled-field');
-                    }
-                }
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', function () {
             // Initialize fields based on checkbox states
             toggleFields('authorizationCheckbox', ['firstName', 'lastName', 'title', 'mobilePhone', 'emailAddress', 'fax']);
             toggleFields('twoFactorAuth', ['mobileNumber']);
 
             // Attach event listeners to checkboxes
-            document.getElementById('authorizationCheckbox').addEventListener('change', function () {
+            $('#authorizationCheckbox').change(function () {
                 toggleFields('authorizationCheckbox', ['firstName', 'lastName', 'title', 'mobilePhone', 'emailAddress', 'fax']);
             });
 
-            document.getElementById('twoFactorAuth').addEventListener('change', function () {
+            $('#twoFactorAuth').change(function () {
                 toggleFields('twoFactorAuth', ['mobileNumber']);
             });
+
+            // Phone number validation
+            function validatePhoneNumberInput(selector) {
+                $(selector).on('focusout', function () {
+                    let value = $(this).val();
+                    const numericValue = value.replace(/\D/g, '');
+
+                    if (numericValue.length === 10) {
+                        const formattedValue = `(${numericValue.slice(0, 3)})-${numericValue.slice(3, 6)}-${numericValue.slice(6)}`;
+                        $(this).val(formattedValue);
+                    } else {
+                        toastr.error('Please enter a valid phone number in the format (222)-333-4444.');
+                        $(this).val('');
+                    }
+                });
+            }
+            validatePhoneNumberInput('.numeric-input');
+
+            // Validation functions
+            function validatePassword() {
+                const password = $('#Password').val() || '';
+                let passwordError = '';
+                if (password.length < 8 || password.length > 16) {
+                    passwordError = 'Password must be between 8 and 16 characters.';
+                } else if (!/(?=.*[a-zA-Z])(?=.*[0-9])/.test(password)) {
+                    passwordError = 'Password must contain at least one letter and one number.';
+                }
+                $('#passwordError').text(passwordError).toggle(!!passwordError);
+                return !passwordError; // Return true if valid
+            }
+
+            function validateConfirmPassword() {
+                const password = $('#Password').val() || '';
+                const confirmPassword = $('#ConfirmPassword').val() || '';
+                let confirmPasswordError = '';
+                if (confirmPassword && confirmPassword !== password) {
+                    confirmPasswordError = 'Passwords do not match.';
+                }
+                $('#confirmPasswordError').text(confirmPasswordError).toggle(!!confirmPasswordError);
+                return !confirmPasswordError; // Return true if valid
+            }
+
+            function validatePSTNumber() {
+                const pstNumber = $('#PSTNumber').val() || '';
+                const pstPattern = /^PST-\d{7}$/;
+                let pstNumberError = '';
+                if (!pstPattern.test(pstNumber)) {
+                    pstNumberError = 'PST Number must be in the format PST-1234567 and exactly 11 characters long.';
+                }
+                $('#pstNumberError').text(pstNumberError).toggle(!!pstNumberError);
+                return !pstNumberError; // Return true if valid
+            }
+
+            function validateTaxID() {
+                const taxID = $('#TaxID').val() || '';
+                const taxIdPattern = /^\d{9}-RT\d{4}$/;
+                let taxIdError = '';
+                if (!taxIdPattern.test(taxID)) {
+                    taxIdError = 'Federal Tax ID must be in the format 123456789-RT0001 and exactly 15 characters long.';
+                }
+                $('#taxIdError').text(taxIdError).toggle(!!taxIdError);
+                return !taxIdError; // Return true if valid
+            }
+
+            function formatAndValidateCCNumber() {
+                const input = $('#CCNumber');
+                let value = input.val().replace(/\D/g, ''); // Remove non-digit characters
+
+                // Format the value with dashes
+                let formattedValue = '';
+                for (let i = 0; i < value.length; i++) {
+                    if (i > 0 && i % 4 === 0) {
+                        formattedValue += '-';
+                    }
+                    formattedValue += value[i];
+                }
+
+                input.val(formattedValue); // Set formatted value
+                validateCreditCardNumber(formattedValue);
+            }
+
+            function validateCreditCardNumber(ccNumber) {
+                const ccNumberWithoutDashes = ccNumber.replace(/-/g, ''); // Remove dashes
+                let ccNumberError = '';
+
+                if (!/^\d{16}$/.test(ccNumberWithoutDashes)) {
+                    ccNumberError = 'Credit Card Number must be 16 digits long and numeric.';
+                }
+
+                $('#ccNumberError').text(ccNumberError).toggle(!!ccNumberError);
+                return !ccNumberError; // Return true if valid
+            }
+
+            function validateExpiryMonth() {
+                const expiryMonth = $('#CCExpiryMonth').val();
+                let expiryMonthError = '';
+                if (!expiryMonth) {
+                    expiryMonthError = 'Expiry Month is required.';
+                }
+                $('#expiryMonthError').text(expiryMonthError).toggle(!!expiryMonthError);
+                return !expiryMonthError; // Return true if valid
+            }
+
+            function validateExpiryYear() {
+                const expiryYear = $('#CCExpiryYear').val();
+                let expiryYearError = '';
+                if (!expiryYear) {
+                    expiryYearError = 'Expiry Year is required.';
+                }
+                $('#expiryYearError').text(expiryYearError).toggle(!!expiryYearError);
+                return !expiryYearError; // Return true if valid
+            }
+
+            function validateCVV() {
+                const cvv = $('#CVV').val();
+                let cvvError = '';
+                if (!/^\d{3}$/.test(cvv)) {
+                    cvvError = 'CVV must be 3 digits long and numeric.';
+                }
+                $('#cvvError').text(cvvError).toggle(!!cvvError);
+                return !cvvError; // Return true if valid
+            }
+
+            // Real-time validation
+            $('#Password').on('keyup input', validatePassword);
+            $('#ConfirmPassword').on('keyup input', validateConfirmPassword);
+            $('#PSTNumber').on('keyup input', validatePSTNumber);
+            $('#TaxID').on('keyup input', validateTaxID);
+            $('#CCNumber').on('keyup input', formatAndValidateCCNumber);
+            $('#CCExpiryMonth').on('change', validateExpiryMonth);
+            $('#CCExpiryYear').on('change', validateExpiryYear);
+            $('#CVV').on('keyup input', validateCVV);
+
+            // Prevent form submission if any validation fails
+            $('form').on('submit', function (e) {
+                const isValid = validatePassword() && validateConfirmPassword() &&
+                    validatePSTNumber() && validateTaxID() &&
+                    validateCreditCardNumber() && validateExpiryMonth() &&
+                    validateExpiryYear() && validateCVV();
+
+                if (!isValid) {
+                    e.preventDefault(); // Prevent form submission
+                    toastr.error('Please fix the errors before submitting.'); // Optional: Show an error message
+                }
+            });
         });
+
+        function toUpperCase(input) {
+            input.value = input.value.toUpperCase();
+        }
+
+        function allowOnlyNumbers(input) {
+            // Replace non-digit characters with an empty string
+            input.value = input.value.replace(/\D/g, '');
+
+            // Optional: Display an error message if the input is empty
+            const inputError = document.getElementById('inputError');
+            if (input.value === '') {
+                toastr.error('This field must contain numeric values only.');
+                $(this).val('');
+            } else {
+                inputError.style.display = 'none';
+            }
+        }
     </script>
+
 
 </body>
 
