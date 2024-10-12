@@ -233,7 +233,7 @@
                                     <div class="col-md-8">
                                         <div class="form-group">
                                             <label for="pstNumber"><strong>PST Number</strong></label>
-                                            <input type="text" asp-for="PSTNumber" id="PSTNumber" class="form-control" placeholder="PST-1234567" maxlength="11" title="Your PST number must be in the format PST-1234567 and exactly 11 characters long." required autocomplete="off" oninput="toUpperCase(this)" />
+                                            <input type="text" asp-for="PSTNumber" id="PSTNumber" class="form-control" placeholder="PST-1234567" maxlength="11" title="Your PST number must be in the format PST-1234567 and exactly 11 characters long." autocomplete="off" oninput="toUpperCase(this)" />
                                             <div id="pstNumberError" class="text-danger" style="display: none;"></div>
                                         </div>
                                         <p><strong>Your PST number is 11 characters long and should be in this format: <span style="color: #0fc6f1;">PST</span><span style="color: red;">-1234567</span>.</strong></p>
@@ -270,7 +270,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="city">*City</label>
-                                            <input type="text" asp-for="BillingCity" id="BillingCity" class="form-control" maxlength="30" placeholder="New York" required autocomplete="off" oninput="toUpperCase(this)" />
+                                            <input type="text" asp-for="BillingCity" id="BillingCity" class="form-control" maxlength="30" placeholder="Surrey" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                 </div>
@@ -278,19 +278,19 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="state">*State</label>
-                                            <input type="text" asp-for="BillingState" id="BillingState" class="form-control" maxlength="30" placeholder="NY" required autocomplete="off" oninput="toUpperCase(this)" />
+                                            <input type="text" asp-for="BillingState" id="BillingState" class="form-control" maxlength="30" placeholder="Province" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="shippingCountry">*Country</label>
-                                            <input type="text" asp-for="BillingCountry" id="BillingCountry" class="form-control" maxlength="50" placeholder="United States" required autocomplete="off" oninput="toUpperCase(this)" />
+                                            <input type="text" asp-for="BillingCountry" id="BillingCountry" class="form-control" maxlength="50" placeholder="Canada" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="zip">*Postal Code</label>
-                                            <input type="text" asp-for="BillingZip" id="BillingZip" class="form-control" maxlength="7" placeholder="10001" required autocomplete="off" oninput="toUpperCase(this)" />
+                                            <input type="text" asp-for="BillingZip" id="BillingZip" class="form-control" maxlength="7" placeholder="V3W-8J9" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                 </div>
@@ -331,7 +331,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="shippingCity">*City</label>
-                                            <input type="text" asp-for="ShippingCity" id="ShippingCity" class="form-control" maxlength="30" placeholder="New York" required autocomplete="off" oninput="toUpperCase(this)" />
+                                            <input type="text" asp-for="ShippingCity" id="ShippingCity" class="form-control" maxlength="30" placeholder="Surrey" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                 </div>
@@ -341,19 +341,19 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="shippingState">*State</label>
-                                            <input type="text" asp-for="ShippingState" id="ShippingState" class="form-control" maxlength="30" placeholder="NY" required autocomplete="off" oninput="toUpperCase(this)" />
+                                            <input type="text" asp-for="ShippingState" id="ShippingState" class="form-control" maxlength="30" placeholder="Province" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="shippingCountry">*Country</label>
-                                            <input type="text" asp-for="ShippingCountry" id="ShippingCountry" class="form-control" maxlength="50" placeholder="United States" required autocomplete="off" oninput="toUpperCase(this)" />
+                                            <input type="text" asp-for="ShippingCountry" id="ShippingCountry" class="form-control" maxlength="50" placeholder="Canada" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="shippingZipcode">*Postal Code</label>
-                                            <input type="text" asp-for="ShippingZipcode" id="ShippingZipcode" class="form-control" maxlength="7" placeholder="10001" required autocomplete="off" oninput="toUpperCase(this)" />
+                                            <input type="text" asp-for="ShippingZipcode" id="ShippingZipcode" class="form-control" maxlength="7" placeholder="V3W-8J9" required autocomplete="off" oninput="toUpperCase(this)" />
                                         </div>
                                     </div>
                                 </div>
@@ -512,7 +512,7 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="supplierName1">*Supplier Name</label>
+                                                <label for="supplierName1">*Supplier Name 1</label>
                                                 <input type="text" asp-for="SupplierName1" id="supplierName1" class="form-control" maxlength="100" placeholder="e.g. Supplier Co." required autocomplete="off" oninput="toUpperCase(this)" />
                                             </div>
                                         </div>
@@ -536,20 +536,20 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="supplierName2">*Supplier Name</label>
-                                                <input type="text" asp-for="SupplierName2" id="supplierName2" class="form-control" maxlength="100" placeholder="e.g. Supplier Co." autocomplete="off" oninput="toUpperCase(this)" />
+                                                <label for="supplierName2">*Supplier Name 2</label>
+                                                <input type="text" asp-for="SupplierName2" id="supplierName2" class="form-control" maxlength="100" placeholder="e.g. Supplier Co." autocomplete="off" oninput="toUpperCase(this)" required />
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="supplierCity2">*City</label>
-                                                <input type="text" asp-for="SupplierCity2" id="supplierCity2" class="form-control" maxlength="100" placeholder="e.g. New York" autocomplete="off" oninput="toUpperCase(this)" />
+                                                <input type="text" asp-for="SupplierCity2" id="supplierCity2" class="form-control" maxlength="100" placeholder="e.g. New York" autocomplete="off" oninput="toUpperCase(this)" required />
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="supplierPhone2">*Phone Number</label>
-                                                <input type="text" asp-for="SupplierPhone2" id="supplierPhone2" class="form-control numeric-input" maxlength="10" placeholder="e.g. (222)-333-4444" autocomplete="off" />
+                                                <input type="text" asp-for="SupplierPhone2" id="supplierPhone2" class="form-control numeric-input" maxlength="10" placeholder="e.g. (222)-333-4444" autocomplete="off" required />
                                             </div>
                                         </div>
                                     </div>
@@ -560,19 +560,19 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="supplierName3">*Supplier Name</label>
+                                                <label for="supplierName3">Supplier Name 3</label>
                                                 <input type="text" asp-for="SupplierName3" id="supplierName3" class="form-control" maxlength="100" placeholder="e.g. Supplier Co." autocomplete="off" oninput="toUpperCase(this)" />
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="supplierCity3">*City</label>
+                                                <label for="supplierCity3">City</label>
                                                 <input type="text" asp-for="SupplierCity3" id="supplierCity3" class="form-control" maxlength="100" placeholder="e.g. New York" autocomplete="off" oninput="toUpperCase(this)" />
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="supplierPhone3">*Phone Number</label>
+                                                <label for="supplierPhone3">Phone Number</label>
                                                 <input type="text" asp-for="SupplierPhone3" id="supplierPhone3" class="form-control numeric-input" maxlength="10" placeholder="e.g. (222)-333-4444" autocomplete="off" />
                                             </div>
                                         </div>
@@ -755,23 +755,23 @@
                                 <div class="form-check">
                                     <input type="checkbox" asp-for="Guarantee" id="guaranteeCheckbox" class="form-check-input" required />
                                     <label for="guaranteeCheckbox" class="form-check-label">
-                                        In consideration of Richelieu and its subsidiaries extending credit hereunder, the undersigned, jointly, severally,
-                                        and unconditionally, guarantees and promises to pay Richelieu on demand, any and all indebtedness of the
-                                        above-named applicant to Richelieu. All payments are payable in any of our other locations. This is a continuing
+                                        In consideration of Canam and its subsidiaries extending credit hereunder, the undersigned, jointly, severally,
+                                        and unconditionally, guarantees and promises to pay Canam on demand, any and all indebtedness of the
+                                        above-named applicant to Canam. All payments are payable in any of our other locations. This is a continuing
                                         guarantee without expiration and the obligations created hereby are unaffected by any change in terms of the
-                                        original indebtedness between Richelieu and the below named applicant save that of payment. A photocopy or
+                                        original indebtedness between Canam and the below named applicant save that of payment. A photocopy or
                                         fax copy shall be given the same effect as the original.
                                     </label>
                                 </div>
                                 <div class="form-check">
                                     <input type="checkbox" asp-for="AuthorizationForVerification" id="authorizationCheckbox2" class="form-check-input" required />
                                     <label for="authorizationCheckbox2" class="form-check-label">
-                                        I authorize Richelieu and its subsidiaries, to verify, validate and to inquire on my/our behalf with regards to this
+                                        I authorize Canam and its subsidiaries, to verify, validate and to inquire on my/our behalf with regards to this
                                         Credit Application and to make whatever credit inquiries it deems necessary in connection with my/our
                                         application for an open account and/or terms. I authorize and instruct any person of commercial and/or
                                         consumer-reporting agency to compile and furnish any information it may have or obtain in response to such
                                         credit inquiries. I also agree that this information will be reviewed periodically in order to maintain my/our credit
-                                        privileges. Richelieu and its subsidiaries may at any time at its own discretion maintain or cancel credit
+                                        privileges. Canam and its subsidiaries may at any time at its own discretion maintain or cancel credit
                                         privileges without notice.
                                     </label>
                                 </div>
